@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ICDAS龋齿评估系统</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入PDF生成库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🦷 ICDAS龋齿评估系统</h1>
+        
+        <!-- 牙位选择 -->
+        <div class="section">
+            <h2>1. 选择牙位（FDI编号）</h2>
+            <div id="tooth-map" class="tooth-grid"></div>
+        </div>
+
+        <!-- 在牙位选择区下方添加 -->
+<div class="quick-selection">
+    <button onclick="selectTeeth(['16', '26', '36', '46'])">选择所有第一磨牙</button>
+    <button onclick="selectTeeth([])">清除选择</button>
+</div>
+
+        <!-- ICDAS分级 -->
+        <div class="section">
+            <h2>2. 选择ICDAS等级</h2>
+            <div id="icdas-options"></div>
+        </div>
+
+        <!-- 医保编码 -->
+        <div class="section">
+            <h2>3. 医保编码建议</h2>
+            <div id="insurance-result">请先选择牙位和等级</div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="actions">
+            <button id="generate-btn">生成评估报告</button>
+            <button id="save-btn">保存记录</button>
+        </div>
+
+        <!-- 结果展示 -->
+        <div id="result" class="hidden">
+            <h3>📋 评估结果</h3>
+            <pre id="output"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
